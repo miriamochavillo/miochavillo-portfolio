@@ -1,13 +1,23 @@
 import { paths } from "@shared/paths";
-import type { RouteObject } from "react-router-dom";
+import { MainLayout } from "@shared/ui";
+import { Outlet, type RouteObject } from "react-router-dom";
 
 export const routes: RouteObject[] = [
 	{
 		ErrorBoundary: () => null,
 		children: [
 			{
-				element: "Home",
-				path: paths.home,
+				element: (
+					<MainLayout>
+						<Outlet />
+					</MainLayout>
+				),
+				children: [
+					{
+						element: "Home",
+						path: paths.home,
+					},
+				],
 			},
 		],
 	},
