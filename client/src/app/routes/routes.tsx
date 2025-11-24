@@ -1,3 +1,4 @@
+import { DashboardContainer } from "@pages/dashboard";
 import { paths } from "@shared/paths";
 import { MainLayout } from "@shared/ui";
 import { Outlet, type RouteObject } from "react-router-dom";
@@ -14,7 +15,7 @@ export const routes: RouteObject[] = [
 				),
 				children: [
 					{
-						element: "Home",
+						element: <DashboardContainer />,
 						path: paths.home,
 					},
 				],

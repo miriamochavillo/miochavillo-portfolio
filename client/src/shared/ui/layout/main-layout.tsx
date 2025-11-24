@@ -14,7 +14,7 @@ export const MainLayout = ({ children }: Props) => {
 			left="0"
 			display="flex"
 			flexDirection="column"
-			bg="white"
+			bg="#FFE9EC"
 		>
 			{/* Main Content (Fills remaining space) */}
 			<Box
