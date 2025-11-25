@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { appColors, CustomDivider } from "@shared/ui";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { NavigationButtons } from "./navigation-buttons";
 import { Overview } from "./overview";
 
@@ -33,6 +34,8 @@ const fadeInUp = {
 } as const;
 
 export const Dashboard = () => {
+	const [isExpanded, setIsExpanded] = useState(false);
+
 	return (
 		<VStack alignItems="stretch" gap={0}>
 			<Card
@@ -52,17 +55,25 @@ export const Dashboard = () => {
 				>
 					<MotionBox
 						variants={fadeInUp}
-						custom={0}
+						custom={2}
 						border="2px solid"
 						borderColor={appColors.common.pink}
 						rounded="2xl"
-						h="50px"
-					/>
+						justifyContent="center"
+						alignItems="center"
+						textAlign="center"
+						color={appColors.common.dustyWhite}
+						fontWeight="bold"
+						fontSize="2xl"
+						fontStyle="italic"
+					>
+						miriam imam ochavillo
+					</MotionBox>
 
 					<MotionBox variants={fadeInUp} custom={1}>
 						<Image
-							src="/src/app/assets/images/purple.png"
-							alt="Profile"
+							src="/src/app/assets/images/mountain.png"
+							alt="hero"
 							maxHeight="400px"
 							objectFit="cover"
 							w="100%"
@@ -76,8 +87,16 @@ export const Dashboard = () => {
 						border="2px solid"
 						borderColor={appColors.common.pink}
 						rounded="2xl"
-						h="50px"
-					/>
+						justifyContent="center"
+						alignItems="center"
+						textAlign="center"
+						color={appColors.common.dustyWhite}
+						fontWeight="bold"
+						fontSize="2xl"
+						fontStyle="italic"
+					>
+						software engineering | portfolio
+					</MotionBox>
 				</MotionFlex>
 			</Card>
 
@@ -127,18 +146,24 @@ export const Dashboard = () => {
 								and opportunities where I can grow, contribute, and support
 								others in building something great.
 							</Text>
-							<Accordion allowToggle>
-								<AccordionItem>
+							<Accordion
+								allowToggle
+								onChange={(index) => setIsExpanded(index === 0)}
+							>
+								<AccordionItem border="0px">
 									<AccordionButton
 										as={Button}
-										variant="ghost"
+										variant="outline"
 										color={appColors.hover.pink}
+										border="none"
 										_hover={{
 											backgroundColor: "transparent",
 											color: appColors.common.pink,
 										}}
+										w="fit-content"
+										justifySelf="center"
 									>
-										Read More
+										{isExpanded ? "Read Less" : "Read More"}
 									</AccordionButton>
 									<AccordionPanel>
 										<CustomDivider />
@@ -148,6 +173,14 @@ export const Dashboard = () => {
 							</Accordion>
 						</MotionBox>
 					</Card>
+					<Image
+						src="/src/app/assets/images/purple.png"
+						alt="Profile"
+						maxHeight="400px"
+						objectFit="cover"
+						w="100%"
+						rounded="2xl"
+					/>
 					<NavigationButtons />
 				</Flex>
 			</MotionBox>

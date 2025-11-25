@@ -2,7 +2,7 @@ export const profileInfo = {
 	name: "Miriam Imam Ochavillo",
 	title:
 		"Software Engineer | PRC Licensed Electronics Engineer and Electronics Technician",
-	avatar: "/src/app/assets/images/purple.png",
+	avatar: "/src/app/assets/images/mio.jpg",
 	email: "miriam.iochavillo@gmail.com",
 	phone: "+63 929 249 6015",
 	location: "Cebu City, Cebu, Philippines",

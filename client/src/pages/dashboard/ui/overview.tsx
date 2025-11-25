@@ -22,7 +22,8 @@ const groupSkillsByType = (skillsArray: typeof skills) => {
 			if (!acc[curr.skillType]) {
 				acc[curr.skillType] = [];
 			}
-			acc[curr.skillType]!.push(curr.skill);
+			acc[curr.skillType]?.push(curr.skill);
+			acc[curr.skillType] = acc[curr.skillType] ?? [];
 			return acc;
 		},
 		{} as Record<string, string[]>,
@@ -44,31 +45,56 @@ export const Overview = () => {
 			justifyContent="center"
 		>
 			{/* Profile Header */}
-			<HStack w="100%" gap={8}>
-				<Image src={profileInfo.avatar} alt="Violet" w="200px" />
+			<HStack w="100%" gap={4} h="100%" alignItems="stretch">
+				<Image
+					src={profileInfo.avatar}
+					alt="profile"
+					flex={1}
+					objectFit="cover"
+					maxW="450px"
+					rounded="2xl"
+				/>
 				<VStack gap={4} alignItems="flex-start" rounded="2xl">
-					<Heading fontStyle="italic" color={appColors.common.burgundy}>
-						{profileInfo.name}
-					</Heading>
-					<Text color={appColors.common.khaki}>{profileInfo.title}</Text>
-					<Box>
-						<Flex alignItems="center" gap={2}>
-							<Icon as={FaEnvelope} color={appColors.common.khaki} />
-							<Text>{profileInfo.email}</Text>
-						</Flex>
-						<Flex alignItems="center" gap={2}>
-							<Icon as={FaPhone} color={appColors.common.khaki} />
-							<Text>{profileInfo.phone}</Text>
-						</Flex>
-						<Flex alignItems="center" gap={2}>
-							<Icon as={FaMap} color={appColors.common.khaki} />
-							<Text>{profileInfo.location}</Text>
-						</Flex>
-						<Flex alignItems="center" gap={2}>
-							<Icon as={FaGithub} color={appColors.common.khaki} />
-							<Text>{profileInfo.github}</Text>
-						</Flex>
-					</Box>
+					<Flex direction="column" gap={4}>
+						<Heading fontStyle="italic" color={appColors.common.burgundy}>
+							{profileInfo.name}
+						</Heading>
+						<Text color={appColors.common.khaki}>{profileInfo.title}</Text>
+						<Box>
+							<Flex alignItems="center" gap={2}>
+								<Icon as={FaEnvelope} color={appColors.common.khaki} />
+								<Text>{profileInfo.email}</Text>
+							</Flex>
+							<Flex alignItems="center" gap={2}>
+								<Icon as={FaPhone} color={appColors.common.khaki} />
+								<Text>{profileInfo.phone}</Text>
+							</Flex>
+							<Flex alignItems="center" gap={2}>
+								<Icon as={FaMap} color={appColors.common.khaki} />
+								<Text>{profileInfo.location}</Text>
+							</Flex>
+							<Flex alignItems="center" gap={2}>
+								<Icon as={FaGithub} color={appColors.common.khaki} />
+								<Text>{profileInfo.github}</Text>
+							</Flex>
+						</Box>
+					</Flex>
+					<CustomDivider borderColor={appColors.common.nature} />
+					<Flex
+						direction="column"
+						gap={4}
+						p={4}
+						rounded="xl"
+						h="100%"
+						border="2px solid"
+						borderColor={appColors.common.pink}
+					>
+						<Heading fontStyle="italic" color={appColors.common.khaki}>
+							About Me
+						</Heading>
+						<CustomDivider />
+						<Text color={appColors.common.burgundy}>{aboutMeText}</Text>
+					</Flex>
 				</VStack>
 			</HStack>
 
@@ -109,61 +135,45 @@ export const Overview = () => {
 					</Flex>
 				</GridItem>
 				<GridItem>
-					<Flex direction="column" gap={4}>
-						<Flex
-							direction="column"
-							gap={4}
-							bg={appColors.common.burgundy}
-							p={4}
-							rounded="xl"
-						>
-							<Heading fontStyle="italic" color={appColors.common.dustyWhite}>
-								About Me
-							</Heading>
-							<CustomDivider />
-							<Text color={appColors.common.dustyWhite}>{aboutMeText}</Text>
-						</Flex>
+					<Flex
+						direction="column"
+						gap={4}
+						bg={appColors.common.pink}
+						p={4}
+						rounded="xl"
+					>
+						<Heading fontStyle="italic" color={appColors.common.burgundy}>
+							Technical Skills
+						</Heading>
+						<CustomDivider borderColor={appColors.common.khaki} />
 
-						<Flex
-							direction="column"
-							gap={4}
-							bg={appColors.common.pink}
-							p={4}
-							rounded="xl"
-						>
-							<Heading fontStyle="italic" color={appColors.common.burgundy}>
-								Technical Skills
-							</Heading>
-							<CustomDivider />
-
-							<Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={4}>
-								{Object.entries(skillsByType).map(([type, skillsList]) => (
-									<Box
-										key={type}
-										rounded="2xl"
-										bg={appColors.common.burgundy}
-										p={4}
-										color={appColors.common.dustyWhite}
-										fontWeight="bold"
-										flex={1}
-									>
-										<Text fontSize="lg" fontStyle="italic">
-											{type}
-										</Text>
-										<Box display="flex">
-											<UnorderedList
-												color={appColors.common.dustyWhite}
-												spacing={1}
-											>
-												{skillsList.map((skill) => (
-													<ListItem key={skill}>{skill}</ListItem>
-												))}
-											</UnorderedList>
-										</Box>
+						<Box display="grid" gridTemplateColumns="repeat(2, 1fr)" gap={4}>
+							{Object.entries(skillsByType).map(([type, skillsList]) => (
+								<Box
+									key={type}
+									rounded="2xl"
+									bg={appColors.common.burgundy}
+									p={4}
+									color={appColors.common.dustyWhite}
+									fontWeight="bold"
+									flex={1}
+								>
+									<Text fontSize="lg" fontStyle="italic">
+										{type}
+									</Text>
+									<Box display="flex">
+										<UnorderedList
+											color={appColors.common.dustyWhite}
+											spacing={1}
+										>
+											{skillsList.map((skill) => (
+												<ListItem key={skill}>{skill}</ListItem>
+											))}
+										</UnorderedList>
 									</Box>
-								))}
-							</Box>
-						</Flex>
+								</Box>
+							))}
+						</Box>
 					</Flex>
 				</GridItem>
 			</Grid>
