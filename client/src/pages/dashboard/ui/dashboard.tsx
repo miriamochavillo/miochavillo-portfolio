@@ -1,21 +1,38 @@
 import {
+	Accordion,
+	AccordionButton,
+	AccordionItem,
+	AccordionPanel,
 	Box,
+	Button,
 	Card,
 	Flex,
-	Grid,
-	GridItem,
 	Heading,
 	Image,
 	Text,
 	VStack,
 } from "@chakra-ui/react";
-import { paths } from "@shared/paths";
-import { appColors } from "@shared/ui";
+import { appColors, CustomDivider } from "@shared/ui";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { NavigationButtons } from "./navigation-buttons";
+import { Overview } from "./overview";
+
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
+
+const fadeInUp = {
+	hidden: { opacity: 0, y: 30 },
+	visible: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			duration: 0.6,
+			ease: "easeOut",
+		},
+	},
+} as const;
 
 export const Dashboard = () => {
-	const navigate = useNavigate();
 	return (
 		<VStack alignItems="stretch" gap={0}>
 			<Card
@@ -27,145 +44,113 @@ export const Dashboard = () => {
 				display="flex"
 				justifyContent="center"
 			>
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6, ease: "easeOut" }}
+				<MotionFlex
+					direction="column"
+					gap={8}
+					initial="hidden"
+					animate="visible"
 				>
-					<Flex direction="column" gap={8}>
-						<Box
-							border="2px solid"
-							borderColor={appColors.common.pink}
-							rounded="2xl"
-							h="100px"
-						/>
+					<MotionBox
+						variants={fadeInUp}
+						custom={0}
+						border="2px solid"
+						borderColor={appColors.common.pink}
+						rounded="2xl"
+						h="50px"
+					/>
+
+					<MotionBox variants={fadeInUp} custom={1}>
 						<Image
 							src="/src/app/assets/images/purple.png"
 							alt="Profile"
-							height="500px"
+							maxHeight="400px"
 							objectFit="cover"
 							w="100%"
 							rounded="2xl"
 						/>
-						<Box
-							border="2px solid"
-							borderColor={appColors.common.pink}
-							rounded="2xl"
-							h="100px"
-						/>
-					</Flex>
-				</motion.div>
+					</MotionBox>
+
+					<MotionBox
+						variants={fadeInUp}
+						custom={2}
+						border="2px solid"
+						borderColor={appColors.common.pink}
+						rounded="2xl"
+						h="50px"
+					/>
+				</MotionFlex>
 			</Card>
-			<Flex direction="column" gap={4} p={4} w="100%">
-				<Card
-					bg={appColors.common.dustyWhite}
-					shadow="none"
-					border="2px solid"
-					borderColor={appColors.common.burgundy}
-					p={4}
-					gap={4}
-					rounded="2xl"
-				>
-					<Heading
-						fontStyle="italic"
-						alignSelf="center"
-						color={appColors.common.khaki}
-					>
-						Introduction
-					</Heading>
-					<Text fontSize="18px" textAlign="center">
-						Hi, I'm Miriam Ochavillo — a software engineer with a strong passion
-						for building intuitive, efficient, and user-focused web
-						applications.
-						<br /> I enjoy transforming ideas into functional products and
-						solving real-world problems through clean code, thoughtful
-						architecture, and continuous improvement. I’m a fast learner who
-						thrives in dynamic environments, and I’m always eager to explore new
-						technologies, tools, and development practices. Whether working
-						independently or collaborating with a team, I bring curiosity,
-						adaptability, and a commitment to producing high-quality work. I
-						value open communication, shared learning, and helping create
-						solutions that not only work well but also deliver meaningful
-						impact. I’m always excited for new challenges and opportunities
-						where I can grow, contribute, and support others in building
-						something great.
-					</Text>
-				</Card>
-				<Grid
-					h="400px"
-					templateRows="repeat(2, 1fr)"
-					templateColumns="repeat(5, 1fr)"
-					gap={4}
-					p={0}
-				>
-					<GridItem
-						rowSpan={2}
-						colSpan={1}
-						bg={appColors.common.khaki}
-						_hover={{ bg: appColors.hover.khaki, cursor: "pointer" }}
-						transition="background-color 0.3s ease"
-						display="flex"
-						justifyContent="center"
-						alignItems="center"
+
+			<MotionBox
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6, ease: "easeOut" }}
+				viewport={{ once: true }}
+			>
+				<Flex direction="column" gap={4} p={4} w="100%">
+					<Card
+						bg={appColors.common.dustyWhite}
+						shadow="none"
+						border="2px solid"
+						borderColor={appColors.common.burgundy}
+						p={4}
+						gap={4}
+						rounded="2xl"
 					>
 						<Heading
-							color={appColors.common.dustyWhite}
-							onClick={() => navigate(paths.profile)}
+							fontStyle="italic"
+							alignSelf="center"
+							color={appColors.common.khaki}
 						>
-							PROFILE
+							Introduction
 						</Heading>
-					</GridItem>
-					<GridItem
-						colSpan={2}
-						bg={appColors.common.pink}
-						_hover={{ bg: appColors.hover.pink, cursor: "pointer" }}
-						transition="background-color 0.3s ease"
-						display="flex"
-						justifyContent="center"
-						alignItems="center"
-					>
-						<Heading
-							color={appColors.common.dustyWhite}
-							onClick={() => navigate(paths.experience)}
+						<MotionBox
+							initial={{ opacity: 0, y: 30 }}
+							whileInView={{ opacity: 1, y: 0 }}
+							transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+							viewport={{ once: true }}
 						>
-							EXPERIENCE
-						</Heading>
-					</GridItem>
-					<GridItem
-						colSpan={2}
-						bg={appColors.common.nature}
-						_hover={{ bg: appColors.hover.nature, cursor: "pointer" }}
-						transition="background-color 0.3s ease"
-						display="flex"
-						justifyContent="center"
-						alignItems="center"
-					>
-						<Heading
-							color={appColors.common.dustyWhite}
-							onClick={() => navigate(paths.education)}
-						>
-							EDUCATION
-						</Heading>
-					</GridItem>
-					<GridItem
-						colSpan={4}
-						bg={appColors.common.burgundy}
-						_hover={{ bg: appColors.hover.burgundy, cursor: "pointer" }}
-						transition="background-color 0.3s ease"
-						display="flex"
-						justifyContent="center"
-						alignItems="center"
-					>
-						<Heading
-							color={appColors.common.dustyWhite}
-							onClick={() => navigate(paths.works)}
-						>
-							WORKS
-						</Heading>
-					</GridItem>
-				</Grid>
-			</Flex>
-			<Box bg={appColors.common.pink} h="500px" />
+							<Text fontSize="18px" textAlign="center">
+								Hi, I'm Miriam Ochavillo — a software engineer with a strong
+								passion for building intuitive, efficient, and user-focused web
+								applications.
+								<br />I enjoy transforming ideas into functional products and
+								solving real-world problems through clean code, thoughtful
+								architecture, and continuous improvement. I’m a fast learner who
+								thrives in dynamic environments, and I’m always eager to explore
+								new technologies, tools, and development practices. Whether
+								working independently or collaborating with a team, I bring
+								curiosity, adaptability, and a commitment to producing
+								high-quality work. I value open communication, shared learning,
+								and helping create solutions that not only work well but also
+								deliver meaningful impact. I’m always excited for new challenges
+								and opportunities where I can grow, contribute, and support
+								others in building something great.
+							</Text>
+							<Accordion allowToggle>
+								<AccordionItem>
+									<AccordionButton
+										as={Button}
+										variant="ghost"
+										color={appColors.hover.pink}
+										_hover={{
+											backgroundColor: "transparent",
+											color: appColors.common.pink,
+										}}
+									>
+										Read More
+									</AccordionButton>
+									<AccordionPanel>
+										<CustomDivider />
+										<Overview />
+									</AccordionPanel>
+								</AccordionItem>
+							</Accordion>
+						</MotionBox>
+					</Card>
+					<NavigationButtons />
+				</Flex>
+			</MotionBox>
 		</VStack>
 	);
 };
