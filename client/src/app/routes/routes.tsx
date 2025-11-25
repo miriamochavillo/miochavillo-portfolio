@@ -18,6 +18,22 @@ export const routes: RouteObject[] = [
 						element: <DashboardContainer />,
 						path: paths.home,
 					},
+					{
+						element: "Profile",
+						path: paths.profile,
+					},
+					{
+						element: "Experience",
+						path: paths.experience,
+					},
+					{
+						element: "Education",
+						path: paths.education,
+					},
+					{
+						element: "Works",
+						path: paths.works,
+					},
 				],
 			},
 		],

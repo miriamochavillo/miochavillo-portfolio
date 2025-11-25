@@ -1,22 +1,16 @@
 export const appColors = {
 	common: {
-		white: "#FFFFFF", // white
+		dustyWhite: "#F2EEE8",
+		burgundy: "#4E0A0B",
+		pink: "#E39792",
+		nature: "#9DAD71",
+		khaki: "#57613CFF",
 	},
-	background: {
-		primary: "#FFFFFF", // white
-		gray: "#EBEBF0", // gray.200
-		black: "#030213", // black
-		green: "#68D391", // green.300
-		teal: "#4FD1C5", // teal.300
-		blue: "#63b3ed", // blue.300
-		cyan: "#76E4F7", // cyan
-	},
-	text: {
-		primary: "#030213", // black
-		secondary: "#737284", // gray.400
-		white: "#FFFFFF", // white
-	},
-	border: {
-		gray: "#E4E4E4", // gray.600
+	hover: {
+		dustyWhite: "#EBE1D3FF",
+		burgundy: "#360707FF",
+		pink: "#C3746EFF",
+		nature: "#7A8852FF",
+		khaki: "#42492CFF",
 	},
 } as const;
