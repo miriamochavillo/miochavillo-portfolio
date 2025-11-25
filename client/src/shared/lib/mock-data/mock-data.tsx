@@ -7,6 +7,20 @@ export const profileInfo = {
 	phone: "+63 929 249 6015",
 	location: "Cebu City, Cebu, Philippines",
 	github: "miriamochavillo",
+	aboutMe: `I am a PRC-licensed Electronics Engineer and Electronics Technician with a strong foundation in Electronics and Communications Engineering, both theoretically and practically. I am highly adaptable, collaborative, and solution-driven, with a keen interest in applying my skills in Information Technology as well.`,
+	introduction: `Hi, I'm Miriam Ochavillo — a software engineer with a strong passion for building intuitive, efficient, and user-focused web
+								applications.I enjoy transforming ideas into functional products and
+								solving real-world problems through clean code, thoughtful
+								architecture, and continuous improvement. I’m a fast learner who
+								thrives in dynamic environments, and I’m always eager to explore
+								new technologies, tools, and development practices. Whether
+								working independently or collaborating with a team, I bring
+								curiosity, adaptability, and a commitment to producing
+								high-quality work. I value open communication, shared learning,
+								and helping create solutions that not only work well but also
+								deliver meaningful impact. I’m always excited for new challenges
+								and opportunities where I can grow, contribute, and support
+								others in building something great.`,
 };
 
 export const educationData = [
@@ -30,10 +44,6 @@ export const educationData = [
 		details: ["(2008-2014)"],
 	},
 ];
-
-export const aboutMeText = `
-I am a PRC-licensed Electronics Engineer and Electronics Technician with a strong foundation in Electronics and Communications Engineering, both theoretically and practically. I am highly adaptable, collaborative, and solution-driven, with a keen interest in applying my skills in Information Technology as well.
-`;
 
 export enum skillType {
 	ELECTRONICS_ENGINEERING = "Electronics Engineering",

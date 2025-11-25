@@ -12,7 +12,7 @@ import {
 	UnorderedList,
 	VStack,
 } from "@chakra-ui/react";
-import { aboutMeText, educationData, profileInfo, skills } from "@shared/lib";
+import { educationData, profileInfo, skills } from "@shared/lib";
 import { appColors, CustomDivider } from "@shared/ui";
 import { FaEnvelope, FaGithub, FaMap, FaPhone } from "react-icons/fa";
 
@@ -93,7 +93,7 @@ export const Overview = () => {
 							About Me
 						</Heading>
 						<CustomDivider />
-						<Text color={appColors.common.burgundy}>{aboutMeText}</Text>
+						<Text color={appColors.common.burgundy}>{profileInfo.aboutMe}</Text>
 					</Flex>
 				</VStack>
 			</HStack>

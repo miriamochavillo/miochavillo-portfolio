@@ -12,6 +12,7 @@ import {
 	Text,
 	VStack,
 } from "@chakra-ui/react";
+import { profileInfo } from "@shared/lib";
 import { appColors, CustomDivider } from "@shared/ui";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -130,21 +131,7 @@ export const Dashboard = () => {
 							viewport={{ once: true }}
 						>
 							<Text fontSize="18px" textAlign="center">
-								Hi, I'm Miriam Ochavillo — a software engineer with a strong
-								passion for building intuitive, efficient, and user-focused web
-								applications.
-								<br />I enjoy transforming ideas into functional products and
-								solving real-world problems through clean code, thoughtful
-								architecture, and continuous improvement. I’m a fast learner who
-								thrives in dynamic environments, and I’m always eager to explore
-								new technologies, tools, and development practices. Whether
-								working independently or collaborating with a team, I bring
-								curiosity, adaptability, and a commitment to producing
-								high-quality work. I value open communication, shared learning,
-								and helping create solutions that not only work well but also
-								deliver meaningful impact. I’m always excited for new challenges
-								and opportunities where I can grow, contribute, and support
-								others in building something great.
+								{profileInfo.introduction}
 							</Text>
 							<Accordion
 								allowToggle
