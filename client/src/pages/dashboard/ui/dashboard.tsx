@@ -106,7 +106,7 @@ export const Dashboard = () => {
 				transition={{ duration: 0.6, ease: "easeOut" }}
 				viewport={{ once: true }}
 			>
-				<Flex direction="column" gap={4} p={4} w="100%">
+				<Flex direction="column" gap={10} p={4} w="100%" my={6}>
 					<Card
 						bg={appColors.common.dustyWhite}
 						shadow="none"
