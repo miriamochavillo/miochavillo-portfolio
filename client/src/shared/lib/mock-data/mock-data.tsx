@@ -45,7 +45,7 @@ export const educationData = [
 	},
 ];
 
-export enum skillType {
+enum skillType {
 	ELECTRONICS_ENGINEERING = "Electronics Engineering",
 	SOFTWARE_ENGINEERING = "Software Engineering",
 	GRAPHIC_DESIGN = "Graphic Design",
