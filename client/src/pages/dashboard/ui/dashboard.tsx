@@ -16,7 +16,6 @@ import { profileInfo } from '@shared/lib';
 import { appColors, CustomDivider } from '@shared/ui';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { NavigationButtons } from './navigation-buttons';
 import { Overview } from './overview';
 
 const MotionBox = motion(Box);
@@ -168,7 +167,8 @@ export const Dashboard = () => {
             w="100%"
             rounded="2xl"
           />
-          <NavigationButtons />
+          {/* TODO: Improve UI*/}
+          {/* <NavigationButtons /> */}
         </Flex>
       </MotionBox>
     </VStack>

@@ -1,6 +1,6 @@
 export const appColors = {
   common: {
-    dustyWhite: '#F2EEE8',
+    dustyWhite: '#ECE8F2FF',
     burgundy: '#4E0A0B',
     pink: '#E39792',
     nature: '#9DAD71',

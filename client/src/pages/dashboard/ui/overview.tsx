@@ -45,14 +45,14 @@ export const Overview = () => {
       justifyContent="center"
     >
       {/* Profile Header */}
-      <HStack w="100%" gap={4} h="100%" alignItems="stretch">
+      <HStack w="100%" gap={10} h="100%" alignItems="stretch">
         <Image
           src={profileInfo.avatar}
           alt="profile"
           flex={1}
           objectFit="cover"
-          maxW="450px"
-          rounded="2xl"
+          maxW="300px"
+          rounded="full"
         />
         <VStack gap={4} alignItems="flex-start" rounded="2xl">
           <Flex direction="column" gap={4}>
@@ -83,22 +83,18 @@ export const Overview = () => {
           <Flex
             direction="column"
             gap={4}
-            p={4}
             rounded="xl"
             h="100%"
-            border="2px solid"
             borderColor={appColors.common.pink}
           >
-            <Heading fontStyle="italic" color={appColors.common.khaki}>
+            <Text color={appColors.common.khaki} fontWeight="bold">
               About Me
-            </Heading>
-            <CustomDivider />
+            </Text>
+
             <Text color={appColors.common.burgundy}>{profileInfo.aboutMe}</Text>
           </Flex>
         </VStack>
       </HStack>
-
-      <CustomDivider />
 
       <Grid
         templateColumns={{ base: '1fr', md: '1fr 2fr' }} // 1 column on mobile, 2 on medium+

@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import type { ReactNode } from 'react';
-import { theme } from './theme';
+import theme from './theme';
+import '@fontsource/montserrat/400.css';
 
 type Props = {
   children: ReactNode;

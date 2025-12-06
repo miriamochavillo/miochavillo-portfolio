@@ -1,7 +1,11 @@
 import { extendTheme } from '@chakra-ui/react';
-import { fonts, fontWeights } from '@shared/ui';
+import '@fontsource/montserrat';
 
-export const theme = extendTheme({
-  fonts,
-  fontWeights,
+const theme = extendTheme({
+  fonts: {
+    heading: `'Montserrat', sans-serif`,
+    body: `'Montserrat', sans-serif`,
+  },
 });
+
+export default theme;
