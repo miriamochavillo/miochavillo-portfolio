@@ -8,10 +8,6 @@
     "@features/*": ["src/features/*"]
   },
   "entry": "src/app/main.tsx",
-  "ignore": [
-    "steiger.config.ts",
-    "@feature-sliced/steiger-plugin"
-  ],
-  "ignoreDependencies": [
-  ]
+  "ignore": ["steiger.config.ts", "@feature-sliced/steiger-plugin"],
+  "ignoreDependencies": []
 }

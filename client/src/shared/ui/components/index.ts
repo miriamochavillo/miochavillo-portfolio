@@ -1,1 +1,1 @@
-export { CustomDivider } from "./custom-divider/custom-divider";
+export { CustomDivider } from './custom-divider/custom-divider';

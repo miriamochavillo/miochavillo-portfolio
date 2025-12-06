@@ -1,2 +1,2 @@
-export * from "./foundations/typography";
-export { appColors } from "./foundations/app-colors";
+export * from './foundations/typography';
+export { appColors } from './foundations/app-colors';

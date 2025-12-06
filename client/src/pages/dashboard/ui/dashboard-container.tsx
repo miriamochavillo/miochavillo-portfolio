@@ -1,5 +1,5 @@
-import { Dashboard } from "./dashboard";
+import { Dashboard } from './dashboard';
 
 export const DashboardContainer = () => {
-	return <Dashboard />;
+  return <Dashboard />;
 };

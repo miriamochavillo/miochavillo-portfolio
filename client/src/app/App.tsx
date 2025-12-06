@@ -1,7 +1,7 @@
-import { Providers } from "./providers/providers";
+import { Providers } from './providers/providers';
 
 function App() {
-	return <Providers />;
+  return <Providers />;
 }
 
 export default App;
